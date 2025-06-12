@@ -7,7 +7,7 @@ require("dotenv").config()
 
 const app = express()
 app.use(express.json())
-app.use(cors({ origin: "https://exam-central.vercel.app", credentials: true }))
+app.use(cors({ origin: "https://exam-central-useq.vercel.app", credentials: true }))
 app.use(cookieParser())
 
 app.use("/api/auth", require("./routes/auth.route"))
