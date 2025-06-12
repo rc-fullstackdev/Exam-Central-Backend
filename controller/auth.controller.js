@@ -56,7 +56,7 @@ exports.UserLogin = asyncHandler(async (req, res) => {
 
         const client = new OAuth2Client({ clientId: process.env.GOOGLE_CLIENT_ID })
 
-        const data = await client.verifyIdToken({ idToken: credential })
+        const data = await client.verifyIdToken({ idToken: credential, audience: process.env.GOOGLE_CLIENT_ID, })
 
         if (!data) {
             return res.status(401).json({ message: "unable to process" })
