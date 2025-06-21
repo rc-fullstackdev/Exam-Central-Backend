@@ -25,7 +25,7 @@ exports.adminProtcted = asyncHandler(async (req, res, next) => {
     console.log(req.cookies);
 
     if (!token) {
-        res.status(401).json({ message: "no cookie found" })
+        return res.status(401).json({ message: "no cookie found" })
     }
 
     jwt.verify(token, process.env.JWT_KEY, (err, data) => {
