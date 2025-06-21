@@ -22,6 +22,7 @@ exports.userProtected = asyncHandler(async (req, res, next) => {
 
 exports.adminProtcted = asyncHandler(async (req, res, next) => {
     const token = req.cookies.ADMIN
+    console.log(req.cookies);
 
     if (!token) {
         res.status(401).json({ message: "no cookie found" })

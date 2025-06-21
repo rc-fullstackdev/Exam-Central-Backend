@@ -42,8 +42,6 @@ exports.UserLogin = asyncHandler(async (req, res) => {
 
     const { email, password, credential } = req.body
 
-    console.log("Current server time:", new Date().toISOString());
-
     const examData = await Time.find({ startTime: { $lte: new Date() }, endTime: { $gte: new Date() } })
 
     if (examData.length === 0) {
