@@ -93,7 +93,7 @@ exports.UserLogin = asyncHandler(async (req, res) => {
 
     const token = jwt.sign({ _id: result._id, name: result.name }, process.env.JWT_KEY)
 
-    res.cookie("USER", token, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true, secure: true, sameSite: "None", domain: "https://exam-central.vercel.app" })
+    res.cookie("USER", token, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true, secure: true, sameSite: "None", domain: "exam-central.vercel.app" })
 
     res.json({
         message: "User Login Successfully",
@@ -132,7 +132,7 @@ exports.adminLogin = asyncHandler(async (req, res) => {
 
     const token = jwt.sign({ _id: result._id, name: result.name }, process.env.JWT_KEY)
 
-    res.cookie("ADMIN", token, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true, secure: true, sameSite: "None", domain: "https://exam-central.vercel.app" })
+    res.cookie("ADMIN", token, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true, secure: true, sameSite: "None", domain: "exam-central.vercel.app" })
 
     res.json({ message: "Admin Login Successfully", name: result.name })
 })
